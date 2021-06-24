@@ -3,6 +3,22 @@
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const weekdays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // Data needed for first part of the section
 const restaurant = {
@@ -11,41 +27,72 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  openingHours,
+  // functions
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+  orderDelivery({ starterIndex, mainIndex, time, address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `,
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
 };
+
+/*
+/////////////////// Optional Chaining below ?.
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+// only if the property before the ? exist then open otherwise return undefined
+console.log(restaurant.openingHours.mon?.open); // property exist if its not null or undefined => if its 0 or ' ' then it still exists
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods with optional chaining
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// Arrays with optional chaining
+const users = [
+  {
+    title: 'John',
+    email: 'john@yahoo.com',
+  },
+];
+console.log(users[0]?.title ?? 'User array empty');
+console.log(users[0]?.email ?? 'Please create email');
+*/
+
+/*
+////////////////////// Looping Arrays - the for-of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// current item
+for (const item of menu) console.log(item);
+
+// current index in for of
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+*/
+//console.log([...menu.entries()]);
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -245,6 +292,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Lazio';
 console.log(restaurantCopy); */
 
+/*
 ////// TEST
 const originalPerson = { name: 'Olle', age: 22, hobbies: ['football', 'food'] };
 function extendObject(person) {
@@ -261,7 +309,7 @@ function extendObject(person) {
   console.log(newPerson);
 }
 
-extendObject(originalPerson);
+extendObject(originalPerson); */
 
 /*
 ////////////// Object destructuring /////////////////////////
