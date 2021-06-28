@@ -49,6 +49,60 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+/*
+/////////////////////////// MAPS Fundamentals //////////////////////////////
+const rest = new Map();
+rest.set('name', 'Classico Italiano'); // add a new element to the data structure
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Malmo, Sweden');
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('Open', 11)
+  .set('Close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get('Open') && time < rest.get('Close')));
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+console.log(rest.get(arr));
+*/
+
+/*
+//////////////////////// SETS /////////////////////////////
+const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']); // sets are iterable
+console.log(orderSet); // Pasta, Pizza, Risotto
+console.log(orderSet.size); // getting the size = 3
+console.log(orderSet.has('Pizza')); // check if a certain element is there / true
+console.log(orderSet.has('Bread')); // false
+orderSet.add('Garlic Bread'); // adding to the set
+orderSet.delete('Risotto'); // deleting
+//orderSet.clear()// delete all elements from set
+console.log(orderSet);
+// Looping over a set
+for (const order of orderSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)]; // ... set into array
+console.log(staffUnique);
+console.log(new Set(staff).size);
+// Sets are used to remove duplicate values of arrays */
+
+/*
 ///////// Looping over property names which are call KEYS
 // Property NAMES
 const properties = Object.keys(openingHours);
@@ -73,22 +127,10 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
 
-/*
+
 //////////////////////////////////////////////////////////////////
 /////////////////////////////Coding Challenge #2
 
-Let's continue with our football betting app! Keep using the 'game' variable from 
-before.
-Your tasks:
-4. Bonus: Create an object called 'scorers' which contains the names of the 
-players who scored as properties, and the number of goals as the value. In this 
-  game, it will look like this:
-  {
-    Gnarby: 1,
-    Hummels: 1,
-    Lewandowski: 2
-  }
-  GOOD LUCK � */
 
 const game = {
   team1: 'Bayern Munich',
@@ -141,20 +183,22 @@ for (const odd of odds) average += odd;
 average /= odds.length;
 console.log(average); // 3.693
 
-/*3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
-Odd of victory Bayern Munich: 1.33
-Odd of draw: 3.25
-Odd of victory Borrussia Dortmund: 6.5
-Get the team names directly from the game object, don't hardcode them 
-(except for "draw"). Hint: Note how the odds and the game objects have the 
-same property names �*/
+//3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+//Odd of victory Bayern Munich: 1.33
+//Odd of draw: 3.25
+//Odd of victory Borrussia Dortmund: 6.5
+//Get the team names directly from the game object, don't hardcode them 
+//(except for "draw"). Hint: Note how the odds and the game objects have the 
+//same property names �
+
+
 for (const [team, odd] of Object.entries(game.odds)) {
   //console.log(team, odd);
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
 
   console.log(`Odd of ${teamStr}: ${odd} `);
 }
-
+*/
 /*
 /////////////////// Optional Chaining below ?.
 if (restaurant.openingHours && restaurant.openingHours.mon)
