@@ -51,6 +51,24 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Working With Strings - Part 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]); // A
+console.log('B737'[0]); // B
+console.log(airline.length);
+console.log('B737'.length);
+console.log(airline.indexOf('r'));
+console.log(airline.indexOf('Portugal'));
+console.log(airline.lastIndexOf('r'));
+
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+///////////////////////////////////////
 // Coding Challenge #3
 
 /* 
@@ -58,7 +76,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
 
 GOOD LUCK 😀
 */
-
+/*
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -92,6 +110,7 @@ for (const [min, e] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${e}`);
 }
+*/
 
 /*
 ///////////////////////////////////////
