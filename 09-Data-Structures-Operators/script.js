@@ -3,6 +3,7 @@
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
 const weekdays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -49,7 +50,12 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/// STRINGS - PART 2
+const airline = 'TAP Air Portugal';
 
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+/*
 ///////////////////////////////////////
 // Working With Strings - Part 1
 const airline = 'TAP Air Portugal';
@@ -68,8 +74,25 @@ console.log(airline.slice(4, 7));
 
 console.log(airline.slice(0, airline.indexOf(' ')));
 console.log(airline.slice(airline.lastIndexOf(' ') + 1));
-///////////////////////////////////////
-// Coding Challenge #3
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
+  else console.log('You got lucky 😎');
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+ console.log(typeof new String('jonas').slice(1)); */
+
+///////////////////////////////////////// Coding Challenge #3
 
 /* 
 Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
