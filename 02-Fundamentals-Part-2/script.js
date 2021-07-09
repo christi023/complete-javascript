@@ -484,13 +484,12 @@ for (let i = 0; i < bills1.length; i++) {
 console.log(tips1, totals1);
 
 // BONUS
-
-const calcAverage1 = (arr) => {
-  const sum = 0;
+const calcAverage1 = function (arr) {
+  let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    sum + arr[i];
+    sum += arr[i];
   }
   return sum / arr.length;
 };
-console.log(calcAverage1(totals1));
-console.log(calcAverage1(tips));
+console.log(calcAverage1(totals1)); // 275.19
+console.log(calcAverage1(tips)); // 46.18
