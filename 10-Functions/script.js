@@ -163,3 +163,27 @@ bookEW(23, 'Steven Williams');
 const bookEW23 = book.bind(eurowings, 23);
 bookEW23('Lucas Olsson');
 bookEW23('Kari Haynes');
+
+// With Event listeners
+britishAirways.planes = 300;
+britishAirways.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+britishAirways.buyPlane();
+document
+  .querySelector('.buy')
+  .addEventListener('click', britishAirways.buyPlane.bind(britishAirways));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
